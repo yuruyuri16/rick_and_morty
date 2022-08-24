@@ -9,12 +9,17 @@ environment:
 
 dependencies:
   bloc: ^8.1.0
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
   flutter_localizations:
     sdk: flutter
+  google_fonts: ^3.0.1
   intl: ^0.17.0
+  rick_and_morty_repository:
+    path: packages/rick_and_morty_repository
+  very_good_infinite_list: ^0.4.1
 
 dev_dependencies:
   bloc_test: ^9.1.0

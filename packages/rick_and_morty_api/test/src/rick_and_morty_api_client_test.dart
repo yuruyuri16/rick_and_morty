@@ -3,9 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:rick_and_morty_api/rick_and_morty_api.dart';
 
 void main() {
-  group('RickAndMortyApi', () {
+  group('RickAndMortyApiClient', () {
     test('can be instantiated', () {
-      expect(RickAndMortyApi(), isNotNull);
+      expect(RickAndMortyApiClient(), isNotNull);
     });
   });
 }

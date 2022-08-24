@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  rick_and_morty_api:
+    path: ../rick_and_morty_api
 
 dev_dependencies:
   flutter_test:

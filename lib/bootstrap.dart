@@ -13,6 +13,12 @@ import 'package:flutter/widgets.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
+  void onEvent(Bloc<dynamic, dynamic> bloc, Object? event) {
+    super.onEvent(bloc, event);
+    log('onEvent(${bloc.runtimeType}, $event)');
+  }
+
+  @override
   void onChange(BlocBase<dynamic> bloc, Change<dynamic> change) {
     super.onChange(bloc, change);
     log('onChange(${bloc.runtimeType}, $change)');

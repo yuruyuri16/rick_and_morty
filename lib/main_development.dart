@@ -7,7 +7,8 @@
 
 import 'package:rick_and_morty/app/app.dart';
 import 'package:rick_and_morty/bootstrap.dart';
+import 'package:rick_and_morty_repository/rick_and_morty_repository.dart';
 
 void main() {
-  bootstrap(() => const App());
+  bootstrap(() => App(rickAndMortyRepository: RickAndMortyRepository()));
 }
