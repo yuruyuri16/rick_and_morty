@@ -9,6 +9,8 @@ environment:
 
 dependencies:
   bloc: ^8.1.0
+  bloc_concurrency: ^0.2.0
+  cached_network_image: ^3.2.1
   equatable: ^2.0.5
   flutter:
     sdk: flutter
@@ -19,7 +21,7 @@ dependencies:
   intl: ^0.17.0
   rick_and_morty_repository:
     path: packages/rick_and_morty_repository
-  very_good_infinite_list: ^0.4.1
+  stream_transform: ^2.0.0
 
 dev_dependencies:
   bloc_test: ^9.1.0

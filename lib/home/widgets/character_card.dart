@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_repository/rick_and_morty_repository.dart';
 
@@ -9,19 +10,22 @@ class CharacterCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(30),
-      child: Card(
-        child: Row(
-          children: <Widget>[
-            Image.network(
-              character.image,
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Row(
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: const BorderRadius.horizontal(
+              left: Radius.circular(16),
+            ),
+            child: CachedNetworkImage(
+              imageUrl: character.image,
               width: size.width * 0.3,
               height: size.width * 0.3,
             ),
-            _CharacterInfo(character: character),
-          ],
-        ),
+          ),
+          _CharacterInfo(character: character),
+        ],
       ),
     );
   }
@@ -39,38 +43,28 @@ class _CharacterInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              character.name,
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-            ),
-            const SizedBox(height: 8),
-            Row(
-              children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                    color: statusColor[character.status],
-                    shape: BoxShape.circle,
-                  ),
-                  width: 12,
-                  height: 12,
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(character.name),
+          const SizedBox(height: 8),
+          Row(
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  color: statusColor[character.status],
+                  shape: BoxShape.circle,
                 ),
-                const SizedBox(width: 6),
-                Text(
-                  '${character.status.capitalized} - ${character.species}',
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
-            ),
-          ],
-        ),
+                width: 12,
+                height: 12,
+              ),
+              const SizedBox(width: 6),
+              Text('${character.status.capitalized} - ${character.species}'),
+            ],
+          ),
+        ],
       ),
     );
   }

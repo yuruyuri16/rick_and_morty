@@ -10,7 +10,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => HomeBloc(context.read<RickAndMortyRepository>()),
+      create: (_) => HomeBloc(context.read<RickAndMortyRepository>())
+        ..add(HomeGetCharacters()),
       child: const HomeView(),
     );
   }
@@ -26,12 +27,12 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(title: Text(l10n.homeAppBarTitle)),
       body: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
-          if (state.status.isLoading && state.page == 1) {
+          if (state.status.isLoading) {
             return const HomeLoading();
           } else if (state.status.isFailure) {
             return const HomeFailure();
           }
-          return const HomeLoaded();
+          return const HomeCharacters();
         },
       ),
     );
