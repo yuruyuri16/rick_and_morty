@@ -43,28 +43,34 @@ class _CharacterInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(character.name),
-          const SizedBox(height: 8),
-          Row(
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  color: statusColor[character.status],
-                  shape: BoxShape.circle,
+    return Flexible(
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(character.name),
+            const SizedBox(height: 8),
+            Row(
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    color: statusColor[character.status],
+                    shape: BoxShape.circle,
+                  ),
+                  width: 12,
+                  height: 12,
                 ),
-                width: 12,
-                height: 12,
-              ),
-              const SizedBox(width: 6),
-              Text('${character.status.capitalized} - ${character.species}'),
-            ],
-          ),
-        ],
+                const SizedBox(width: 6),
+                Flexible(
+                  child: Text(
+                    '${character.status.capitalized} - ${character.species}',
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
