@@ -26,7 +26,7 @@ void main() {
 
   late final HomeBloc homeBloc;
 
-  setUpAll(() {
+  setUp(() {
     homeBloc = MockHomeBloc();
   });
 
