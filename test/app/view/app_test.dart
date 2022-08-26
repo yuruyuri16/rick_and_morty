@@ -23,10 +23,11 @@ void main() {
       rickAndMortyRepository = MockRickAndMortyRepository();
     });
 
-    testWidgets('renders CounterPage', (tester) async {
+    testWidgets('renders AppView', (tester) async {
       await tester.pumpWidget(
         App(rickAndMortyRepository: rickAndMortyRepository),
       );
+      await tester.pumpAndSettle();
       expect(find.byType(AppView), findsOneWidget);
     });
   });
@@ -45,6 +46,7 @@ void main() {
           child: const AppView(),
         ),
       );
+      await tester.pumpAndSettle();
       expect(find.byType(HomePage), findsOneWidget);
     });
   });
