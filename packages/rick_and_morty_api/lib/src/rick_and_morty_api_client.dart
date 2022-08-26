@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:rick_and_morty_api/src/models/character.dart';
 
 ///
@@ -12,15 +13,16 @@ class RickAndMortyApiClient {
   /// {@macro rick_and_morty_api}
   RickAndMortyApiClient({
     Dio? httpClient,
-  }) : _httpClient = (httpClient ?? Dio())..options.baseUrl = _baseUrl;
+  }) : httpClient = (httpClient ?? Dio())..options.baseUrl = _baseUrl;
 
-  final Dio _httpClient;
+  @visibleForTesting
+  final Dio httpClient;
   static const _baseUrl = 'https://rickandmortyapi.com/api';
 
   ///
   Future<List<Character>> getCharacters({int page = 1}) async {
     try {
-      final response = await _httpClient.get<JsonType>(
+      final response = await httpClient.get<JsonType>(
         '/character',
         queryParameters: {'page': page},
       );
