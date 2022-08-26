@@ -13,9 +13,9 @@ class MockHomeBloc extends MockBloc<HomeEvent, HomeState> implements HomeBloc {}
 
 void main() {
   group('HomeBloc', () {
-    late final RickAndMortyRepository rickAndMortyRepository;
+    late RickAndMortyRepository rickAndMortyRepository;
 
-    setUpAll(() {
+    setUp(() {
       rickAndMortyRepository = MockRickAndMortyRepository();
     });
 

@@ -49,9 +49,9 @@ void main() {
   });
 
   group('HomeView', () {
-    late final HomeBloc homeBloc;
+    late HomeBloc homeBloc;
 
-    setUpAll(() {
+    setUp(() {
       homeBloc = MockHomeBloc();
     });
 
