@@ -25,18 +25,20 @@ class HomeView extends StatelessWidget {
     final l10n = context.l10n;
     return Scaffold(
       appBar: AppBar(title: Text(l10n.homeAppBarTitle)),
-      body: BlocBuilder<HomeBloc, HomeState>(
-        builder: (context, state) {
-          if (state.status.isLoading) {
-            return const HomeLoading();
-          } else if (state.status.isSuccess) {
-            return const HomeCharacters();
-          } else if (state.status.isFailure) {
-            return const HomeFailure();
-          } else {
-            return const HomeEmpty();
-          }
-        },
+      body: SafeArea(
+        child: BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            if (state.status.isLoading) {
+              return const HomeLoading();
+            } else if (state.status.isSuccess) {
+              return const HomeCharacters();
+            } else if (state.status.isFailure) {
+              return const HomeFailure();
+            } else {
+              return const HomeEmpty();
+            }
+          },
+        ),
       ),
     );
   }
