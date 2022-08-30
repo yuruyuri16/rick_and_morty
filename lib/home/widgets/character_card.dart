@@ -54,6 +54,7 @@ class _CharacterInfo extends StatelessWidget {
             Row(
               children: <Widget>[
                 Container(
+                  key: const Key('character_card_status_key'),
                   decoration: BoxDecoration(
                     color: statusColor[character.status],
                     shape: BoxShape.circle,
@@ -76,7 +77,7 @@ class _CharacterInfo extends StatelessWidget {
   }
 }
 
-extension on String {
+extension StringX on String {
   String get capitalized =>
       length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
 }

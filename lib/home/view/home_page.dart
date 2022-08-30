@@ -29,10 +29,13 @@ class HomeView extends StatelessWidget {
         builder: (context, state) {
           if (state.status.isLoading) {
             return const HomeLoading();
+          } else if (state.status.isSuccess) {
+            return const HomeCharacters();
           } else if (state.status.isFailure) {
             return const HomeFailure();
+          } else {
+            return const HomeEmpty();
           }
-          return const HomeCharacters();
         },
       ),
     );
