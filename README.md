@@ -1,6 +1,7 @@
 # Rick And Morty
 
 <a href="https://github.com/felangel/bloc"><img src="https://tinyurl.com/bloc-library" alt="Bloc Library"></a>
+[![rick_and_morty](https://github.com/yuruyuri16/rick_and_morty/actions/workflows/main.yaml/badge.svg)](https://github.com/yuruyuri16/rick_and_morty/actions/workflows/main.yaml)
 ![coverage][coverage_badge]
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![License: MIT][license_badge]][license_link]
